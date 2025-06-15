@@ -47,10 +47,11 @@ const resources = [
 
 export default function Welcome() {
     const firebaseApp = useFirebaseContext();
-
+    // eslint-disable-next-line no-console
+    console.log(import.meta.env);
     const analytics = getAnalytics(firebaseApp);
     logEvent(analytics, "WELCOME_RENDERED", {
-        env: import.meta.env.VITE_APP_ENVIRONMENT,
+        env: import.meta.env.MODE,
     });
     return (
         <main className="flex items-center justify-center pt-16 pb-4">
