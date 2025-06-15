@@ -1,5 +1,3 @@
-import { getAnalytics, logEvent } from "firebase/analytics";
-import { useFirebaseContext } from "~/firebase/FirebaseContext";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
@@ -46,13 +44,6 @@ const resources = [
 ];
 
 export default function Welcome() {
-    const firebaseApp = useFirebaseContext();
-    // eslint-disable-next-line no-console
-    console.log(import.meta.env);
-    const analytics = getAnalytics(firebaseApp);
-    logEvent(analytics, "WELCOME_RENDERED", {
-        env: import.meta.env.MODE,
-    });
     return (
         <main className="flex items-center justify-center pt-16 pb-4">
             <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
