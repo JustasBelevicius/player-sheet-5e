@@ -2,12 +2,12 @@ import {
     isRouteErrorResponse,
     Links,
     Meta,
-    Outlet,
     Scripts,
     ScrollRestoration,
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
+import AppContent from "./AppContent";
 import { FirebaseContextProvider } from "./firebase/FirebaseContext";
 
 export const links: Route.LinksFunction = () => [
@@ -57,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
     return (
         <FirebaseContextProvider firebaseOptions={firebaseOptions}>
-            <Outlet />
+            <AppContent />
         </FirebaseContextProvider>
     );
 }
