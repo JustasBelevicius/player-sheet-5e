@@ -1,12 +1,13 @@
-import Welcome from "../welcome/welcome";
-
 export default function Home() {
-    return <Welcome />;
+    return null;
 }
 
 export function meta() {
     return [
-        { title: "New React Router App" },
-        { name: "description", content: "Welcome to React Router!" },
+        { title: "5e Player Sheets" },
+        {
+            name: "description",
+            content: "Create and Manage your DnD 5e Characters",
+        },
     ];
 }

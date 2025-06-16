@@ -8,6 +8,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import AppContent from "./AppContent";
+import { FirebaseAuthProvider } from "./firebase/FirebaseAuthContext";
 import { FirebaseContextProvider } from "./firebase/FirebaseContext";
 
 export const links: Route.LinksFunction = () => [
@@ -57,7 +58,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
     return (
         <FirebaseContextProvider firebaseOptions={firebaseOptions}>
-            <AppContent />
+            <FirebaseAuthProvider>
+                <AppContent />
+            </FirebaseAuthProvider>
         </FirebaseContextProvider>
     );
 }

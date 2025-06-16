@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: lofi --default, black --prefersdark;
+  themes: lofi --default, forest --prefersdark;
   root: ":root";
   include: ;
   exclude: ;

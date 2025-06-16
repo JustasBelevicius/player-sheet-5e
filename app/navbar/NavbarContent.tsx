@@ -1,24 +1,24 @@
-import useFirebaseAuth from "~/firebase/FirebaseAuth";
+import type { User } from "firebase/auth";
+import useCharacters from "~/api/useCharacters";
 
-export default function NavbarContent() {
-    const { user, login, logout } = useFirebaseAuth();
+export default function NavbarContent({ user }: { user: User | null }) {
+    const characters = useCharacters(user?.uid);
+
     return (
-        <div className="flex flex-col h-full p-4">
-            <div className="flex-1">Content</div>
-            <div className="flex-none">
-                {!!user && (
-                    <p className="text-lg text-ellipsis text-nowrap overflow-hidden">
-                        Hello, {user.displayName}
-                    </p>
-                )}
-                <button
-                    className="btn w-full mt-4"
-                    type="button"
-                    onClick={user ? logout : login}
-                >
-                    {user ? "Log Out" : "Sign In"}
-                </button>
-            </div>
+        <div className="flex-row">
+            <h2 className="tracking-wide">Characters</h2>
+            <ul className="list">
+                {characters.map(({ name, id }) => (
+                    <li key={id} className="list-row flex items-center">
+                        <img
+                            className="size-10 mask mask-squircle"
+                            src="https://placehold.co/100"
+                            alt=""
+                        />
+                        <div>{name}</div>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
