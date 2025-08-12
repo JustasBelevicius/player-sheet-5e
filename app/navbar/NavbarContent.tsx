@@ -1,4 +1,5 @@
 import type { User } from "firebase/auth";
+import { Link } from "react-router";
 import useCharacters from "~/api/useCharacters";
 
 export default function NavbarContent({ user }: { user: User | null }) {
@@ -6,9 +7,9 @@ export default function NavbarContent({ user }: { user: User | null }) {
 
     return (
         <div className="flex-row">
-            <h2 className="tracking-wide">Characters</h2>
+            <Link to="/characters"  className="tracking-wide">Characters</Link>
             <ul className="list">
-                {characters.map(({ name, id }) => (
+                {characters.slice(0, 5).map(({ name, id }) => (
                     <li key={id} className="list-row flex items-center">
                         <img
                             className="size-10 mask mask-squircle"

@@ -1,3 +1,4 @@
+/// <reference types="vite-plugin-svgr/client" />
 import {
     isRouteErrorResponse,
     Links,
@@ -7,9 +8,11 @@ import {
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
-import AppContent from "./AppContent";
+import DesktopContent from "./DesktopContent";
 import { FirebaseAuthProvider } from "./firebase/FirebaseAuthContext";
 import { FirebaseContextProvider } from "./firebase/FirebaseContext";
+import { useIsMobile } from "./hooks/useIsMobile";
+import MobileContent from "./MobileContent";
 
 export const links: Route.LinksFunction = () => [
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -56,10 +59,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+    const isMobile = useIsMobile();
+
     return (
         <FirebaseContextProvider firebaseOptions={firebaseOptions}>
             <FirebaseAuthProvider>
-                <AppContent />
+                {isMobile ? (
+                    <MobileContent />
+                ) : (
+                    <DesktopContent />
+                )}
             </FirebaseAuthProvider>
         </FirebaseContextProvider>
     );

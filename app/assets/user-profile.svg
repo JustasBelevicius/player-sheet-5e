@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Wizard's pointed hat -->
+  <path d="M12 2L8 8L16 8L12 2Z"/>
+  <!-- Hat brim -->
+  <path d="M6 8H18"/>
+  <!-- Face/head -->
+  <circle cx="12" cy="12" r="3"/>
+  <!-- Body -->
+  <path d="M12 15V21"/>
+  <!-- Robe -->
+  <path d="M8 15C8 15 10 17 12 15C14 17 16 15 16 15"/>
+  <!-- Magical sparkle -->
+  <path d="M18 4L19 5L18 6L17 5L18 4Z"/>
+  <path d="M6 4L7 5L6 6L5 5L6 4Z"/>
+</svg>
